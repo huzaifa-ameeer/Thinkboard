@@ -1,23 +1,31 @@
+import noteModel from "../models/notes.model";
+
 export const getNote = async (req, res) => {
+  try {
+    const notes = await noteModel.find({});
     res.status(200).json({
-    message: "Note fetched successfully",
-  });
+      message: "Notes fetched successfully",
+      notes,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Internal server error",
+    });
+  }
 };
 
 export const postNote = async (req, res) => {
-    res.status(201).json({
-    message: "Note created successfully",
-  });
-}
+  
+};
 
 export const updateNote = async (req, res) => {
-    res.status(200).json({
+  res.status(200).json({
     message: "Note updated successfully",
   });
-}
+};
 
 export const deleteNote = async (req, res) => {
-    res.status(200).json({
+  res.status(200).json({
     message: "Note deleted successfully",
   });
-}
+};
