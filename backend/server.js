@@ -2,7 +2,7 @@ import dotenv from "dotenv"
 dotenv.config()
 import express from "express"
 import connectDb from "./src/config/db.js"
-import notesRouter from "./src/routes/notesRoutes.js"
+import notesRouter from "./src/routes/notes.routes.js"
 
 const app = express();
 

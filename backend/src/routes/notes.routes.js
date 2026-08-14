@@ -4,7 +4,7 @@ import {
   getNote,
   postNote,
   updateNote,
-} from "../controllers/notesController.js";
+} from "../controllers/notes.controller.js";
 
 const router = express.Router();
 
