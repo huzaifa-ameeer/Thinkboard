@@ -1,5 +1,5 @@
 import express from "express"
-import notesRouter from "./routes/notesRoutes.js"
+import notesRouter from "./src/routes/notesRoutes.js"
 
 const app = express();
 
