@@ -1,9 +1,14 @@
+import dotenv from "dotenv"
+dotenv.config()
 import express from "express"
+import connectDb from "./src/config/db.js"
 import notesRouter from "./src/routes/notesRoutes.js"
 
 const app = express();
 
 const port = process.env.PORT || 3000
+
+connectDb()
 
 app.use(express.json())
 app.use("/api/notes", notesRouter)

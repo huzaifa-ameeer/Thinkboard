@@ -1,4 +1,3 @@
-
 export const getNote = async (req, res) => {
     res.status(200).json({
     message: "Note fetched successfully",
