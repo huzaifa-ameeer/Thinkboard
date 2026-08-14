@@ -15,7 +15,20 @@ export const getNote = async (req, res) => {
 };
 
 export const postNote = async (req, res) => {
-  
+  try {
+    const { title, content } = req.body;
+    const note = await noteModel.create({
+      title,
+      content,
+    });
+    res.status(201).json({
+      message: "Note created successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Internal server error",
+    });
+  }
 };
 
 export const updateNote = async (req, res) => {
