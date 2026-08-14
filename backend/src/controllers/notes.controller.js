@@ -21,6 +21,9 @@ export const postNote = async (req, res) => {
       title,
       content,
     });
+
+    await note.save();
+
     res.status(201).json({
       message: "Note created successfully",
     });
@@ -32,13 +35,30 @@ export const postNote = async (req, res) => {
 };
 
 export const updateNote = async (req, res) => {
-  res.status(200).json({
-    message: "Note updated successfully",
-  });
+  try {
+    const { title, content } = req.body;
+    const newNote = await noteModel.findByIdAndUpdate(req.params.id, {
+      title,
+      content,
+    }, {
+      new: true
+    });
+    if (!newNote) {
+      res.status(404).json({
+        message: "Note not found",
+      });
+    }
+    res.status(200).json({
+      message: "Note updated successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Internal server error"
+    })
+  }
 };
 
 export const deleteNote = async (req, res) => {
-  res.status(200).json({
-    message: "Note deleted successfully",
-  });
+  
+  
 };
