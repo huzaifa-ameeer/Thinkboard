@@ -1,5 +1,6 @@
 import React from 'react'
 import toast from 'react-hot-toast'
+import {Toaster} from "react-hot-toast"
 import {Route, Routes} from "react-router"
 import HomePage from './pages/HomePage'
 import CreatePage from './pages/CreatePage'
